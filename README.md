@@ -58,3 +58,7 @@ This repository now includes the complete public project package:
 - Project source/configuration folders where the original project included runnable code or design files.
 
 Original raw report archives are not committed because they can contain private student metadata in covers, headers, or document properties.
+
+## Public File Coverage
+
+See `docs/public_file_coverage.md` for the complete list of public-safe project files included and the raw/private material intentionally excluded.
