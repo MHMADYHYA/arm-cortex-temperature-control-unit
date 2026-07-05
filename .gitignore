@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.log
+*.wlf
+db/
+incremental_db/
+output_files/*.sof
