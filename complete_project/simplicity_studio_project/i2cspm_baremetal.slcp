@@ -1,0 +1,60 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+project_name: i2cspm_baremetal
+label: i2cspm_baremetal
+description: |
+  This example project demonstrates how to use the I2C Simple Polled Master driver using the Si7021 Relative Humidity and Temperature Sensor in a bare-metal configuration.
+category: Example|Platform
+filter:
+- name: Device Type
+  value: [SoC]
+- name: MCU
+  value: [32-bit MCU]
+- name: Project Difficulty
+  value: [Beginner]
+package: platform
+quality: production
+readme:
+- {path: readme.md}
+- {path: readme.md}
+source:
+- {path: app.c}
+- {path: main.c}
+- {path: i2cspm.c}
+tag: ['hardware:component:led:2+', 'hardware:component:sensor:si7021']
+include:
+- path: .
+  file_list:
+  - {path: app.h}
+  - {path: i2cspm.h}
+sdk: {id: simplicity_sdk, version: 2025.6.0}
+toolchain_settings: []
+component:
+- {id: EFM32PG28B310F1024IM68}
+- {id: brd2506a}
+- {id: button}
+- {id: clock_manager}
+- {id: device_init}
+- {id: emlib_lcd}
+- {id: emlib_usart}
+- {id: gpiointerrupt}
+- instance: [sensor]
+  id: i2cspm
+- {id: iostream_recommended_console}
+- {id: iostream_retarget_stdio}
+- {id: iostream_stdlib_config}
+- {id: segment_lcd_driver}
+- {id: si70xx_driver}
+- instance: [btn0]
+  id: simple_button
+- instance: [led0, led1]
+  id: simple_led
+- {id: sl_system}
+- {id: sleeptimer}
+define:
+- {name: DEBUG_EFM}
+configuration:
+- {name: SL_BOARD_ENABLE_VCOM, value: '1'}
+- {name: SL_BOARD_ENABLE_SENSOR_RHT, value: '1'}
+ui_hints:
+  highlight:
+  - {path: readme.md, focus: true}
